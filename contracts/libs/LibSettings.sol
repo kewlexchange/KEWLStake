@@ -13,6 +13,7 @@ library LibSettings {
         address CNS;
         address WETH9;
         address REWARDToken;
+        address ETH;
         address feeReceiver;
     }
 

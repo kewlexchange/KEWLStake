@@ -28,5 +28,9 @@ contract Settings is Modifiers {
         LibSettings.layout().fee  = _fee;
     }
 
+    function setETH(address _ether) external onlyOwner{
+        LibSettings.layout().ETH = _ether;
+    }
+
 
 }

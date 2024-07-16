@@ -15,7 +15,7 @@ describe("Deploy KEWL STAKE", function () {
     
     async function deployKEWL() { 
 
-
+        const ETHER_ADDRESS = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
 
         const [deployer, user1, user2, user3, user4, user5,user6,user7,user8,user9,user10] = await ethers.getSigners();
         console.log("DEPLOYER:",deployer.address)
@@ -45,8 +45,6 @@ describe("Deploy KEWL STAKE", function () {
         const FactoryFacet = await ethers.getContractAt("Factory",KEWL.address);
         const SettingsFacet = await ethers.getContractAt("Settings",KEWL.address);
 
-
-
         const WRAPPED_TOKEN_FACTORY = await ethers.getContractFactory("WETH9")
         const WRAPEPD_TOKEN = await WRAPPED_TOKEN_FACTORY.deploy();
 
@@ -59,7 +57,8 @@ describe("Deploy KEWL STAKE", function () {
         const setFeeReceiver = await SettingsFacet.setFeeReceiver(deployer.address);
         await setFeeReceiver.wait();
 
-
+        const setETHAddress = await SettingsFacet.setETH(ETHER_ADDRESS);
+        await setETHAddress.wait();
 
         return {
             KEWL,
@@ -77,6 +76,7 @@ describe("Deploy KEWL STAKE", function () {
             user8,
             user9,
             user10,
+            ETHER_ADDRESS,
         };
 
     }
@@ -101,7 +101,8 @@ describe("Deploy KEWL STAKE", function () {
                 user7,
                 user8,
                 user9,
-                user10
+                user10,
+                ETHER_ADDRESS
             } = await loadFixture(deployKEWL);
 
 

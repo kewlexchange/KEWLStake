@@ -77,9 +77,11 @@ function createTokenPool(address token, address reward, uint256 amount, uint256 
 }
 
 function create(address token, address reward, uint256 amount, uint256 expiredAt) external payable nonReentrant whenNotPaused whenNotContract(msg.sender){
-        bool isNativeCurrency  = msg.value > 0 ? true : false;
+        bool isNativeCurrency  =  msg.value > 0 ? true : false;
+
+
         if(isNativeCurrency){
-            createNativePool(LibSettings.layout().WETH9,reward,amount,expiredAt);
+            createNativePool(token,reward,amount,expiredAt);
         }else{
             createTokenPool(token,reward,amount,expiredAt);
         }
