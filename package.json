@@ -49,7 +49,7 @@
   "dependencies": {
     "@moralisweb3/common-evm-utils": "^2.20.0",
     "@nomicfoundation/hardhat-network-helpers": "^1.0.7",
-    "@openzeppelin/contracts": "4.8.2",
+    "@openzeppelin/contracts": "4.9.6",
     "@openzeppelin/contracts-upgradeable": "4.9.6",
     "@openzeppelin/hardhat-upgrades": "^1.21.0",
     "@solidstate/contracts": "^0.0.59",
